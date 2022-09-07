@@ -22,21 +22,11 @@ public class Games {
     @Column(name = "precio")
     private Double precio;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idgenero")
-    private Genero idgenero;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idplataforma")
     private Plataforma idplataforma;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ideditora")
-    private Editora ideditora;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "iddistribuidora")
-    private Distributors iddistribuidora;
 
     public Integer getId() {
         return id;
@@ -70,13 +60,6 @@ public class Games {
         this.precio = precio;
     }
 
-    public Genero getIdgenero() {
-        return idgenero;
-    }
-
-    public void setIdgenero(Genero idgenero) {
-        this.idgenero = idgenero;
-    }
 
     public Plataforma getIdplataforma() {
         return idplataforma;
@@ -86,20 +69,5 @@ public class Games {
         this.idplataforma = idplataforma;
     }
 
-    public Editora getIdeditora() {
-        return ideditora;
-    }
-
-    public void setIdeditora(Editora ideditora) {
-        this.ideditora = ideditora;
-    }
-
-    public Distributors getIddistribuidora() {
-        return iddistribuidora;
-    }
-
-    public void setIddistribuidora(Distributors iddistribuidora) {
-        this.iddistribuidora = iddistribuidora;
-    }
 
 }
