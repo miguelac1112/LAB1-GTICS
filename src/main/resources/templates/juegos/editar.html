@@ -62,14 +62,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="plataforma" class="form-label">Plataforma</label>
-                    <select class="form-select" name="plataforma" id="plataforma" required>
-                        <option disabled>Seleccionar plataforma</option>
-                        <option value="1">Wii</option>
-                        <option value="2">PlayStation 4</option>
-                        <option value="3">Xbox</option>
-                        <option value="4">Nintendo Switch</option>
-                        <option value="5">PlayStation 5</option>
-                        <option value="10">Xbox Serie X</option>
+                    <select class="form-select" name="plataforma" id="plataforma" required th:field="${games.idplataforma.getNombre()}>
+                        <option th:each="platform : ${platforms}"
+                            th:text="${platform.getNombre()}"
+                            th:value="${platform.id}"></option>
                     </select>
                 </div>
                 <!-- Completar -->

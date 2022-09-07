@@ -20,7 +20,6 @@ public class Games {
     @Column(name = "precio")
     private Double precio;
 
-
     @ManyToOne
     @JoinColumn(name = "idplataforma")
     private Platforms idplataforma;

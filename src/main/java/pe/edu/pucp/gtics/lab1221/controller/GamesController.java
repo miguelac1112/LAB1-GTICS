@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pe.edu.pucp.gtics.lab1221.entity.Games;
 import pe.edu.pucp.gtics.lab1221.repository.GamesRepository;
+import pe.edu.pucp.gtics.lab1221.repository.PlatformsRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,8 @@ public class GamesController {
 
     @Autowired
     GamesRepository gamesRepository;
+    @Autowired
+    PlatformsRepository platformsRepository;
 
     @GetMapping(value = {"/lista", ""})
     public String listaJuegos (Model model){
@@ -40,6 +43,7 @@ public class GamesController {
         if (optGames.isPresent()){
             Games games = optGames.get();
             model.addAttribute("games", games);
+            model.addAttribute("platforms",platformsRepository.findAll());
             return "juegos/editar";
         }else{
             return "redirect:/juegos/lista";
