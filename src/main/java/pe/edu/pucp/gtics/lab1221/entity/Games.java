@@ -1,7 +1,7 @@
 package pe.edu.pucp.gtics.lab1221.entity;
 
 
-import pe.edu.pucp.gtics.lab1221.Plataforma;
+
 
 import javax.persistence.*;
 
@@ -22,19 +22,7 @@ public class Games {
     @Column(name = "precio")
     private Double precio;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idgenero")
-    private Genero idgenero;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idplataforma")
-    private Plataforma idplataforma;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ideditora")
-    private Editora ideditora;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "iddistribuidora")
     private Distributors iddistribuidora;
 
@@ -70,29 +58,6 @@ public class Games {
         this.precio = precio;
     }
 
-    public Genero getIdgenero() {
-        return idgenero;
-    }
-
-    public void setIdgenero(Genero idgenero) {
-        this.idgenero = idgenero;
-    }
-
-    public Plataforma getIdplataforma() {
-        return idplataforma;
-    }
-
-    public void setIdplataforma(Plataforma idplataforma) {
-        this.idplataforma = idplataforma;
-    }
-
-    public Editora getIdeditora() {
-        return ideditora;
-    }
-
-    public void setIdeditora(Editora ideditora) {
-        this.ideditora = ideditora;
-    }
 
     public Distributors getIddistribuidora() {
         return iddistribuidora;

@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -48,13 +48,26 @@
             <h2>Editar Distribuidora</h2>
         </div>
         <div class="container-fluid">
-            <form method="POST">
+            <form method="POST" th:action="@{/distribuidoras/guardar}">
                 <!-- Completar -->
                 <!-- Completar -->
+                <input name="id" hidden type="text" th:value="${distribuidora.getId()}">
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Nombre</label>
+                    <input th:value="${distribuidora.getNombre()}" name="nombre" type="text" required="required" class="form-control" id="Nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="Fundacion" class="form-label">Fundacion</label>
+                    <input th:value="${distribuidora.getFundacion()}" name="fundacion" type="number" max="2022" min="1000" class="form-control" id="Fundacion">
+                </div>
+                <div class="mb-3">
+                    <label for="Sede" class="form-label">Sede</label>
+                    <input th:value="${distribuidora.getSede()}" name="sede" type="text" required="required" class="form-control" id="Sede">
+                </div>
                 <!-- Completar -->
                 <!-- Completar -->
 
-                <a class="btn btn-danger">Cancelar</a>
+                <a class="btn btn-danger" th:href="@{/distribuidoras/lista}">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
