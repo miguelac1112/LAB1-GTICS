@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pe.edu.pucp.gtics.lab1221.entity.Games;
 import pe.edu.pucp.gtics.lab1221.repository.GamesRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class GamesController {
@@ -16,9 +17,12 @@ public class GamesController {
     GamesRepository gamesRepository;
 
 
+    @GetMapping(value = {"/lista", ""})
+    public String listaJuegos (Model model){
+        List<Games> lista = gamesRepository.findAll();
+        model.addAttribute("gamesList", lista);
 
-    public String listaJuegos (){
-        return "";
+        return "juegos/lista";
     };
 
     public String editarJuegos(){
