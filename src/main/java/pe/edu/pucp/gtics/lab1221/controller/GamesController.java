@@ -31,7 +31,7 @@ public class GamesController {
     }
 
     @GetMapping("/editar")
-    public String guardarJuegos(Model model, @RequestParam("id") int id){
+    public String editarJuegos(Model model, @RequestParam("id") int id){
         Optional<Games> optGames = gamesRepository.findById(id);
         if (optGames.isPresent()){
             Games games = optGames.get();
