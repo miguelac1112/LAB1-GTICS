@@ -1,8 +1,6 @@
 package pe.edu.pucp.gtics.lab1221.entity;
 
 
-import pe.edu.pucp.gtics.lab1221.Plataforma;
-
 import javax.persistence.*;
 
 @Entity
@@ -23,9 +21,9 @@ public class Games {
     private Double precio;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idplataforma")
-    private Plataforma idplataforma;
+    private Platforms idplataforma;
 
 
     public Integer getId() {
@@ -61,11 +59,11 @@ public class Games {
     }
 
 
-    public Plataforma getIdplataforma() {
+    public Platforms getIdplataforma() {
         return idplataforma;
     }
 
-    public void setIdplataforma(Plataforma idplataforma) {
+    public void setIdplataforma(Platforms idplataforma) {
         this.idplataforma = idplataforma;
     }
 
