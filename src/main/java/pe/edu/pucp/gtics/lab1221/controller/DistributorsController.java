@@ -25,7 +25,7 @@ public class DistributorsController {
     @GetMapping(value = {"/lista"})
     public String listaDistribuidoras (Model model){
         List<Distributors> listaDistributors = distributorsRepository.findAll(Sort.by("nombre"));
-        model.addAttribute("listaDistributors",listaDistributors);
+        model.addAttribute("listaDistribuidora",listaDistributors);
         return "distribuidoras/lista";
     }
 
