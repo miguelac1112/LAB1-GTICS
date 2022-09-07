@@ -62,13 +62,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr th:each="game : ${gamesList}">
                         <!-- Completar -->
+                        <td th:text="${game.getId()}"></td>
                         <!-- Completar -->
+                        <td th:text="${game.getNombre()}"></td>
                         <!-- Completar -->
+                        <td th:text="${game.getDescripcion()}"></td>
                         <!-- Completar -->
-                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
-                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
+                        <td th:text="${game.getPrecio()}"></td>
+
+
+                        <td><a class="btn btn-primary" th:href="@{'editar?'+'id='+${distribuidora.getId()}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'borrar?'+'id='+${distribuidora.getId()}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
