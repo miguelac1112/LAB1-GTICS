@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -64,13 +64,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr th:each="distribuidora : ${listaDistribuidora}">
                         <!-- Completar -->
+                        <td th:text="${distribuidora.getId()}"></td>
                         <!-- Completar -->
+                        <td th:text="${distribuidora.getNombre()}"></td>
                         <!-- Completar -->
+                        <td th:text="${distribuidora.getFundacion()}"></td>
                         <!-- Completar -->
-                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
-                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
+                        <td th:text="${distribuidora.getSede()}"></td>
+
+
+                        <td><a class="btn btn-primary" th:href="@{'editar?'+'id='+${distribuidora.getId()}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'borrar?'+'id='+${distribuidora.getId()}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
