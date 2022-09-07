@@ -2,9 +2,16 @@ package pe.edu.pucp.gtics.lab1221.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import pe.edu.pucp.gtics.lab1221.entity.Distributors;
 import pe.edu.pucp.gtics.lab1221.repository.DistributorsRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/distribuidoras")
@@ -15,24 +22,37 @@ public class DistributorsController {
 
 
     @GetMapping(value = {"/lista"})
-    public String listaDistribuidoras (){
-        return "";
-    };
+    public String listaDistribuidoras (Model model){
+        List<Distributors> listaDistributors = distributorsRepository.listarDistributorsPorNombre();
+        model.addAttribute("listaDistributors",listaDistributors);
+        return "distribuidoras/lista";
+    }
 
-    public String editarDistribuidoras(){
-        return "";
-    };
+    @GetMapping("/editar")
+    public String editarDistribuidoras(Model model, @RequestParam("id") Integer id){
+        Optional<Distributors> optionalDistributors = distributorsRepository.findById(id);
+        if (optionalDistributors.isPresent()){
+            Distributors distributors = optionalDistributors.get();
+            model.addAttribute("distribuidora",distributors);
+        }
+        return "distribuidoras/editar";
+    }
 
+    @GetMapping("/nuevo")
     public String nuevaDistribuidora(){
-        return "";
-    };
+        return "distribuidoras/nuevo";
+    }
 
-    public String guardarDistribuidora(){
-        return "";
-    };
+    @PostMapping("/guardar")
+    public String guardarDistribuidora(Distributors distributors){
+        distributorsRepository.save(distributors);
+        return "redirect:/distribuidoras/lista";
+    }
 
-    public String borrarDistribuidora(){
-        return "";
-    };
+    @GetMapping("/borrar")
+    public String borrarDistribuidora(@RequestParam("id") Integer id){
+        distributorsRepository.deleteById(id);
+        return "redirect:/distribuidoras/lista";
+    }
 
 }
