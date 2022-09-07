@@ -57,12 +57,20 @@
                     <input th:value="${games.getNombre()}" name="nombre" type="text" required="required" class="form-control" id="Nombre">
                 </div>
                 <div class="mb-3">
-                    <label for="descripcion" class="form-label">Fundacion</label>
+                    <label for="descripcion" class="form-label">Descripción</label>
                     <input th:value="${games.getDescripcion()}" name="descripcion" type="text" class="form-control" id="descripcion">
                 </div>
                 <div class="mb-3">
-                    <label for="plataforma" class="form-label">Sede</label>
-                    <input th:value="${games.getIdplataforma()}" name="plataforma" type="text" required="required" class="form-control" id="plataforma">
+                    <label for="plataforma" class="form-label">Plataforma</label>
+                    <select class="form-select" name="plataforma" id="plataforma" required>
+                        <option disabled>Seleccionar plataforma</option>
+                        <option value="1">Wii</option>
+                        <option value="2">PlayStation 4</option>
+                        <option value="3">Xbox</option>
+                        <option value="4">Nintendo Switch</option>
+                        <option value="5">PlayStation 5</option>
+                        <option value="10">Xbox Serie X</option>
+                    </select>
                 </div>
                 <!-- Completar -->
                 <!-- Completar -->
