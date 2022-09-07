@@ -3,11 +3,11 @@ package pe.edu.pucp.gtics.lab1221.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "plataformas")
-public class Platforms {
+@Table(name = "generos")
+public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idplataforma", nullable = false)
+    @Column(name = "idgenero", nullable = false)
     private Integer id;
 
     @Column(name = "nombre", length = 50)
