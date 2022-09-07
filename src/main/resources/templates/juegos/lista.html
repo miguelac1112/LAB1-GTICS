@@ -73,8 +73,8 @@
                         <td th:text="${game.getPrecio()}"></td>
 
 
-                        <td><a class="btn btn-primary" th:href="@{'editar?'+'id='+${distribuidora.getId()}}">Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'borrar?'+'id='+${distribuidora.getId()}}">Borrar</a></td>
+                        <td><a class="btn btn-primary" th:href="@{'editar?'+'id='+${game.getId()}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'borrar?'+'id='+${game.getId()}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
