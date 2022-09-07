@@ -62,10 +62,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="plataforma" class="form-label">Plataforma</label>
-                    <select class="form-select" name="plataforma" id="plataforma" required th:field="${games.idplataforma.getNombre()}>
+                    <select class="form-select" name="plataforma" id="plataforma" required th:field="${games.idplataforma}">
                         <option th:each="platform : ${platforms}"
                             th:text="${platform.getNombre()}"
-                            th:value="${platform.id}"></option>
+                            th:value="${platform.id}" ></option>
                     </select>
                 </div>
                 <!-- Completar -->
