@@ -48,15 +48,32 @@
             <h2>Editar Juego</h2>
         </div>
         <div class="container-fluid">
-                <form method="POST">
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
+            <form method="POST" th:action="@{/juegos/guardar}">
+                <!-- Completar -->
+                <!-- Completar -->
+                <input name="id" hidden type="text" th:value="${games.getId()}">
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Nombre</label>
+                    <input th:value="${games.getNombre()}" name="nombre" type="text" required="required" class="form-control" id="Nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Fundacion</label>
+                    <input th:value="${games.getDescripcion()}" name="descripcion" type="text" class="form-control" id="descripcion">
+                </div>
+                <div class="mb-3">
+                    <label for="plataforma" class="form-label">Sede</label>
+                    <input th:value="${games.getIdplataforma()}" name="plataforma" type="text" required="required" class="form-control" id="plataforma">
+                </div>
+                <!-- Completar -->
+                <!-- Completar -->
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Sede</label>
+                    <input th:value="${games.getPrecio()}" name="precio" type="text" required="required" class="form-control" id="precio">
+                </div>
 
-                    <a  class="btn btn-danger">Cancelar</a>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
+                <a class="btn btn-danger" th:href="@{/juegos/lista}">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
         </div>
         </main>
     </div>
